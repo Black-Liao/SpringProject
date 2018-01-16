@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    
+    <bean id="customerBean" class="com.shiyanlou.spring.collection.Customer">
+    	<property name="lists">
+	    	<list>
+	    		<value>1</value>
+	    		<ref bean="personBean" />
+	    		<value>2</value>
+	    		<bean class="com.shiyanlou.spring.collection.Person">
+	    			<property name="name" value="shiyanlouLists"/>
+	    			<property name="address" value="chengdu"/>
+	    			<property name="age" value="18" />
+	    		</bean>
+	    	</list>
+    	</property>
+    	<property name="maps">
+    		<map>
+    			<entry key="key 1" value="1"/>
+    			<entry key="key 2"  value-ref="personBean"/>
+    			<entry key="key 3">
+    				<bean class="com.shiyanlou.spring.collection.Person">
+    					<property name="name" value="shiyanlouMaps"/>
+    					<property name="address" value="chengdu"/>
+    					<property name="age" value="18"/>
+    				</bean>
+    			</entry>
+    		</map>
+    	</property>
+    	<property name="sets">
+    		<set>
+    			<value>1</value>
+    			<ref bean="personBean"/>
+    			<bean class="com.shiyanlou.spring.collection.Person">
+    				<property name="name" value="shiyanlouSets"/>
+	    			<property name="address" value="chengdu"/>
+	    			<property name="age" value="18" />
+    			</bean>
+    		</set>
+    	</property>
+    	<property name="properties">
+    		<props>
+    			<prop key="admin">admin@nospam.com</prop>
+    			<prop key="support">support@nospam.com</prop>
+    		</props>
+    	</property>
+    </bean>
+    
+    <bean id="personBean" class="com.shiyanlou.spring.collection.Person">
+    	<property name="name" value="shiyanlouPersonBean"/>
+    	<property name="address" value="chengdu"/>
+    	<property name="age" value="18"/>    	
+    </bean>
+    
+</beans>
