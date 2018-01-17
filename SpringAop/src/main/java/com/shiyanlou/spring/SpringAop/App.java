@@ -5,10 +5,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.shiyanlou.spring.aop.advice.CustomerService;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
 	static ApplicationContext context;
@@ -17,7 +13,7 @@ public class App
     {
         context = new ClassPathXmlApplicationContext("SpringAOPAdvice.xml");
         
-        CustomerService cs = (CustomerService) context.getBean("customerServiceProxy");
+        CustomerService cs = (CustomerService) context.getBean("customerService");
         
         cs.printName();
         cs.printUrl();
